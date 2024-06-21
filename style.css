@@ -22,7 +22,18 @@ body {
 }
 header {
     grid-area: header;
+    animation-name: header-drop;
+    animation-duration: 1s;
 }
+@keyframes header-drop {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+} 
 nav {
     padding: 1.2rem 2.8rem;
     display: flex;
@@ -88,6 +99,21 @@ section .h1-buttons-wrapper + p {
     gap: 1.2rem;
     margin-top: 0.8rem;
 }
+button:hover {
+    scale: 1.1;
+    transition-property: scale;
+    transition-duration: 0.2s;
+    cursor: pointer; 
+}
+/* #like:active {
+    background-color: green;
+} */
+#like:focus {
+    background-color: green;
+}
+#dislike:focus {
+    background-color: red;
+}
 #like {
     background-image: url(./assets/like.svg);
 }
@@ -113,6 +139,29 @@ figure {
     display: flex;
     gap: 1.6rem;
     align-items: center;
+    animation-name: figure-jump;
+    animation-duration: 1s;
+    animation-delay: var(--delay-time);
+    cursor: pointer;
+}
+image:hover {
+    filter: hue-rotate(7deg) contrast(101%) saturate(200%);
+}
+main {
+    overflow-y: scroll;
+}
+@keyframes figure-jump {
+    0% {
+        opacity: 0;
+        scale: 0.6;
+    }
+    50% {
+        scale: 1.2;
+    }
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
 }
 figure img {
     width: 100%;
@@ -135,11 +184,13 @@ figure img {
 }
 footer {
     grid-area: footer;
-    color: white;
+    color: white; 
     font-size: 1.6rem;
     font-weight: 600;
     text-align: center;
     padding: 1.6rem;
+    animation-name: header-drop;
+    animation-duration: 1s;
 }
 @media (min-width:768px) {
     main {
