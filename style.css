@@ -24,15 +24,16 @@ header {
     grid-area: header;
     animation-name: header-drop;
     animation-duration: 1s;
+    --starty: -100%
 }
 @keyframes header-drop {
     0% {
-        transform: translateY(-100%);
+        transform: translateY(var(--starty));
     }
 
-    100% {
+    /* 100% {
         transform: translateY(0%);
-    }
+    } */
 } 
 nav {
     padding: 1.2rem 2.8rem;
@@ -59,6 +60,12 @@ nav input::placeholder {
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
+}
+input:focus::placeholder {          
+    color: transparent;
+}
+input:focus {
+    outline: 2px solid white;
 }
 nav img {
     height: 4.2rem;
